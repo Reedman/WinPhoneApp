@@ -1,0 +1,91 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="NyAppWP.Pages.FieldList"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter="clr-namespace:NyAppWP.Converters"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <phone:PhoneApplicationPage.Resources>
+        <converter:DateTimeConverter x:Key="DateTimeConverter" ></converter:DateTimeConverter>
+    </phone:PhoneApplicationPage.Resources>
+    
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar x:Name="appBar" IsVisible="True" IsMenuEnabled="True" BackgroundColor="#FFFF8B00">
+            <shell:ApplicationBarIconButton Text="新增" IconUri="/Toolkit.Content/ApplicationBar.Add.png" Click="ApplicationBarIconButton_Click"></shell:ApplicationBarIconButton>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="{StaticResource AppBg}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Background="{StaticResource BgMask}">
+            <TextBlock Text="我的农田" FontSize="46" Margin="25,0,0,0" Foreground="#bb7a36" FontWeight="Bold"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Background="{StaticResource BgMask}">
+            <Grid Margin="25,0,25,0">
+                <ListBox x:Name="listFarm">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Background="White" Margin="0,0,0,25">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="140"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid x:Name="FieldListItem" Grid.Row="0" Tap="FieldListItem_Tap">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150"></ColumnDefinition>
+                                        <ColumnDefinition Width="170"></ColumnDefinition>
+                                        <ColumnDefinition Width="130"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Image x:Name="imgPlant" Grid.Column="0" Source="{Binding CoverImagePath}" Tag="{Binding FarmlandID}" Margin="10,10,0,0" Tap="imgPlant_Tap">
+                                    </Image>
+                                    <StackPanel Grid.Column="1" Margin="20,15,0,0">
+                                        <TextBlock Text="{Binding FarmlandName}" Foreground="#bb7a36"></TextBlock>
+                                        <TextBlock Text="{Binding PlantingDate,Converter={StaticResource DateTimeConverter}}" Foreground="#bb7a36"></TextBlock>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="面积：" Foreground="#bb7a36"></TextBlock>
+                                            <TextBlock Text="{Binding Area}" Foreground="#bb7a36"></TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="种类：" Foreground="#bb7a36"></TextBlock>
+                                            <TextBlock Text="{Binding PlantingCropName}" Foreground="#bb7a36"></TextBlock>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <Image Width="60" Height="60" Grid.Column="2" Source="/Assets/Farmer/more-icon.png" Tap="Image_Tap">
+                                    </Image>
+                                </Grid>
+                                <Grid Grid.Row="1" Visibility="Collapsed">
+                                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0" HorizontalAlignment="Left">
+                                        <Button x:Name="btnRequest" Content="我要咨询" Background="#bb7a36" Margin="0" BorderThickness="0"></Button>
+                                        <Button x:Name="btnRequestRecord" Content="咨询记录" Background="#bb7a36" BorderThickness="0"></Button>
+                                        <Button x:Name="btnDelete" Content="删除" Background="#bb7a36" Width="150" BorderThickness="0" Tap="btnDelete_Tap" Tag="{Binding FarmlandID}"></Button>
+                                    </StackPanel>
+                                </Grid>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+
+                </ListBox>
+            </Grid>
+        </Grid>
+
+    </Grid>
+
+</phone:PhoneApplicationPage>

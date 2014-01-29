@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{29DFCAF8-D396-4DBF-932A-363D9145410B}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NyAppHelper</RootNamespace>
+    <AssemblyName>NyAppHelper</AssemblyName>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|ARM' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\ARM\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|ARM' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\ARM\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AppSettings.cs" />
+    <Compile Include="Data\DataAccessLayer\CollectionPestViewDataAccessLayer.cs" />
+    <Compile Include="Data\DataAccessLayer\CollectionTaskDataAccessLayer.cs" />
+    <Compile Include="Data\DataAccessLayer\CollectionTaskNatureDataAccessLayer.cs" />
+    <Compile Include="Data\DataAccessLayer\CollectionTaskResultDataAccessLayer.cs" />
+    <Compile Include="Data\DataAccessLayer\CropDataAccessLayer.cs" />
+    <Compile Include="Data\DataAccessLayer\FieldCropDataAccessLayer.cs" />
+    <Compile Include="Data\DataAccessLayer\FieldDataAccessLayer.cs" />
+    <Compile Include="Data\DataAccessLayer\PestDataAccessLayer.cs" />
+    <Compile Include="Data\DataAccessLayer\PhotoDataAccessLayer.cs" />
+    <Compile Include="Data\DataAccessLayer\RegionDataAccessLayer.cs" />
+    <Compile Include="Data\DB\SQLLiteDBSettings.cs" />
+    <Compile Include="Data\DB\SqlLiteTableBase.cs" />
+    <Compile Include="Data\IDataAccessible.cs" />
+    <Compile Include="Data\IObjectConvertible.cs" />
+    <Compile Include="Data\IStorageExecutive.cs" />
+    <Compile Include="Data\Storage\AppServiceStateExecutor.cs" />
+    <Compile Include="Data\Storage\IsolateStorageFileExecutor.cs" />
+    <Compile Include="Data\IStorageExecutiveAsync.cs" />
+    <Compile Include="Data\JsonParser.cs" />
+    <Compile Include="Http\AppClientBase.cs" />
+    <Compile Include="Http\Forecast.cs" />
+    <Compile Include="Http\IRestfulExecutable.cs" />
+    <Compile Include="Http\Security\HMACEncryptor.cs" />
+    <Compile Include="Http\Security\MD5.cs" />
+    <Compile Include="Http\Service\CollectionTaskService.cs" />
+    <Compile Include="Http\Service\CropService.cs" />
+    <Compile Include="Http\Service\DictionaryService.cs" />
+    <Compile Include="Http\Service\FieldService.cs" />
+    <Compile Include="Http\Service\PestService.cs" />
+    <Compile Include="Http\Service\RegionService.cs" />
+    <Compile Include="Http\Service\UserService.cs" />
+    <Compile Include="Location\GeoHelper.cs" />
+    <Compile Include="Location\LocationHelper.cs" />
+    <Compile Include="Model\AlphaKeyGroup.cs" />
+    <Compile Include="Model\CollectionTaskResultDisease.cs" />
+    <Compile Include="Model\CollectionTaskResultPest.cs" />
+    <Compile Include="Model\CollectionTaskResultWeed.cs" />
+    <Compile Include="Model\CollectionTaskPestView.cs" />
+    <Compile Include="Model\CollectionTaskNature.cs" />
+    <Compile Include="Model\CollectionTaskResult.cs" />
+    <Compile Include="Model\Crop.cs" />
+    <Compile Include="Model\Field.cs" />
+    <Compile Include="Model\FieldCrop.cs" />
+    <Compile Include="Model\FieldSurveyResult.cs" />
+    <Compile Include="Model\ObservableObjectBase.cs" />
+    <Compile Include="Model\CollectionTask.cs" />
+    <Compile Include="Model\Pest.cs" />
+    <Compile Include="Model\Photo.cs" />
+    <Compile Include="Model\Region.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\portable-net45+wp80+win8\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp.WindowsPhone">
+      <HintPath>..\packages\RestSharp.104.4.0\lib\sl4-wp71\RestSharp.WindowsPhone.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <ProjectExtensions />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

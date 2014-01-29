@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="NyAppWP.Controls.CollectionRequirementPopup"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:converter="clr-namespace:NyAppWP.Converters"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="580">
+
+    <UserControl.Resources>
+        <converter:NullableTextComverter x:Key="NullableTextComverter" ></converter:NullableTextComverter>
+    </UserControl.Resources>
+
+    <Border x:Name="border" Background="#CC000000">
+        <ScrollViewer>
+            <Grid Width="450" Height="auto" Background="#fff5e9" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Row="0">
+                    <Rectangle Fill="#bb7a36" Width="5"></Rectangle>
+                    <TextBlock Foreground="#bb7a36" Margin="10,0,0,0" Text="采集要求" VerticalAlignment="Center" FontSize="28" FontWeight="Bold"/>
+                </StackPanel>
+                <ListBox x:Name="lbRequirement" Grid.Row="1" VerticalAlignment="Center" Width="470" Margin="0,20,0,20">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="2"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="{Binding PestName}" Grid.Row="0" FontSize="28" Foreground="#bb7a36"></TextBlock>
+                                <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,0,0,10">
+                                    <TextBlock Text="采集要求：" FontSize="18" Foreground="Green"></TextBlock>
+                                    <TextBlock Text="{Binding CollectionRequirement,Converter={StaticResource NullableTextComverter}}" TextWrapping="Wrap" Foreground="Black" FontSize="18" VerticalAlignment="Center" Width="360"></TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="0,0,0,10">
+                                    <TextBlock Text="照片要求：" FontSize="18" Foreground="Green"></TextBlock>
+                                    <TextBlock Text="{Binding PhotoRequirement,Converter={StaticResource NullableTextComverter}}" TextWrapping="Wrap" Foreground="Black" FontSize="18" VerticalAlignment="Center" Width="360"></TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="0,0,0,30">
+                                    <TextBlock Text="特殊要求：" FontSize="18" Foreground="Green"></TextBlock>
+                                    <TextBlock Text="{Binding SpecialRequirement,Converter={StaticResource NullableTextComverter}}" TextWrapping="Wrap" Foreground="Black" FontSize="18" VerticalAlignment="Center" Width="360"></TextBlock>
+                                </StackPanel>
+                                <Rectangle Fill="#bb7a36" Grid.Row="4"></Rectangle>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Border x:Name="Confirm" Grid.Row="2" Grid.Column="0" Background="Green" Width="153" HorizontalAlignment="Center" Tap="Confirm_Tap" Margin="0,0,0,0">
+                    <TextBlock Text="确  认" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                </Border>
+                <StackPanel Grid.Row="3"></StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Border>
+
+
+</UserControl>

@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="NyAppWP.Controls.InsectPestTab"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="700" d:DesignWidth="480">
+
+    <ScrollViewer Margin="0,0,0,0">
+        <StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="8"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Rectangle Fill="Green" Width="8" Grid.Column="0" Grid.Row="0" Height="46"></Rectangle>
+                <TextBlock Margin="8" Grid.Column="1" Foreground="Green" FontSize="24" Text="调查记录" VerticalAlignment="Center" FontWeight="Bold" Width="230" Grid.Row="0"></TextBlock>
+                <CheckBox x:Name="cbRemind" Grid.Column="2" FontSize="18" Padding="0,0,0,0" Content="工作预警" BorderThickness="1" BorderBrush="White" VerticalAlignment="Center" Grid.Row="0" Foreground="Red" FontWeight="Bold" />
+            </Grid>
+            <StackPanel>
+                <TextBlock Text="采集虫害类型" FontSize="24" Foreground="#333333" FontWeight="Bold"></TextBlock>
+                <TextBox x:Name="txtPestTypeName" Background="#fff5e8" BorderBrush="Transparent" Foreground="#767676"/>
+            </StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition ></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Row="0" Grid.Column="0">
+                    <TextBlock Text="调查总穴数" FontSize="24" Foreground="#333333" FontWeight="Bold"></TextBlock>
+                    <TextBox x:Name="txtTotalHoles" Background="#fff5e8" BorderBrush="Transparent" BorderThickness="0" Width="200" Margin="-10,0,0,0"/>
+                </StackPanel>
+                <StackPanel Grid.Row="0" Grid.Column="1">
+                    <TextBlock Text="查获虫数" FontSize="24" Foreground="#333333" FontWeight="Bold"></TextBlock>
+                    <TextBox x:Name="txtFoundPests" Background="#fff5e8" BorderBrush="Transparent" BorderThickness="0"  Margin="-10,0,0,0" Width="200"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="0">
+                    <TextBlock Text="调查总株数" FontSize="24" Foreground="#333333" FontWeight="Bold"></TextBlock>
+                    <TextBox x:Name="txtTotalPlant" Background="#fff5e8" BorderBrush="Transparent" BorderThickness="0" Width="200" Margin="-10,0,0,0"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="1">
+                    <TextBlock Text="查获卵数" FontSize="24" Foreground="#333333" FontWeight="Bold"></TextBlock>
+                    <TextBox x:Name="txtFoundPestEggs" Background="#fff5e8" BorderBrush="Transparent" BorderThickness="0"  Margin="-10,0,0,0" Width="200"/>
+                </StackPanel>
+                <StackPanel Grid.Row="2" Grid.Column="0">
+                    <TextBlock Text="枯心数" FontSize="24" Foreground="#333333" FontWeight="Bold"></TextBlock>
+                    <TextBox x:Name="txtDeadHeartStems" Background="#fff5e8" BorderBrush="Transparent" BorderThickness="0"  Margin="-10,0,0,0" Width="200"/>
+                </StackPanel>
+                <StackPanel Grid.Row="2" Grid.Column="1">
+                    <TextBlock Text="鞘株数" FontSize="24" Foreground="#333333" FontWeight="Bold"></TextBlock>
+                    <TextBox x:Name="txtBadStems" Background="#fff5e8" BorderBrush="Transparent" BorderThickness="0"  Margin="-10,0,0,0" Width="200"/>
+                </StackPanel>
+                <StackPanel Grid.Row="3" Grid.Column="0">
+                    <TextBlock Text="成虫数" FontSize="24" Foreground="#333333" FontWeight="Bold"></TextBlock>
+                    <TextBox x:Name="txtAdultPests" Background="#fff5e8" BorderBrush="Transparent" BorderThickness="0"  Margin="-10,0,0,0" Width="200"/>
+                </StackPanel>
+            </Grid>
+            <StackPanel>
+                <StackPanel Height="46" Orientation="Horizontal">
+                    <Rectangle Fill="Green" Width="8"></Rectangle>
+                    <TextBlock Margin="8" Foreground="Green" FontSize="24" Text="调查拍摄" VerticalAlignment="Center" FontWeight="Bold"></TextBlock>
+                </StackPanel>
+                <StackPanel>
+                    <phone:LongListSelector x:Name="ImageList" Margin="10" Width="440"
+                                        ItemsSource="{Binding ImageList}"
+                                        LayoutMode="Grid" IsGroupingEnabled="False"
+                                        GridCellSize="142,142" HorizontalAlignment="Center" SelectionChanged="ImageList_SelectionChanged">
+                        <phone:LongListSelector.ItemTemplate>
+                            <DataTemplate>
+                                <Image Margin="2" Source="{Binding ThumbnailDetailUri}" Stretch="UniformToFill" ></Image>
+                            </DataTemplate>
+                        </phone:LongListSelector.ItemTemplate>
+                    </phone:LongListSelector>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="NyAppWP.Controls.FieldCropTab"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:es="clr-namespace:NyAppWP.Controls.ExpanderSelector"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="550" d:DesignWidth="480">
+
+    <ScrollViewer Margin="0,-20,0,0">
+        <StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="8"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Rectangle Fill="Green" Width="8" Grid.Column="0" Grid.Row="0" Height="46"></Rectangle>
+                <TextBlock Margin="8" Grid.Column="1" Foreground="Green" FontSize="24" Text="作物信息" VerticalAlignment="Center" FontWeight="Bold" Width="230" Grid.Row="0"></TextBlock>
+                <CheckBox x:Name="cbIsCrops" Grid.Column="2" FontSize="18" Padding="10,0,0,0" Content="经济作物" BorderThickness="1" BorderBrush="White" VerticalAlignment="Center" Grid.Row="0" Foreground="Black" FontWeight="Bold" Click="cbIsCrops_Click"/>
+            </Grid>
+            <StackPanel>
+                <TextBlock Text="作物种类" FontSize="24" Foreground="#000000" FontWeight="Bold"></TextBlock>
+                <es:ExpanderSelector x:Name="esCrop" Margin="16,12,16,12" Height="42" DefaultValue="请选择农作物种类"></es:ExpanderSelector>
+                <TextBlock Text="种植日期" FontSize="24" Foreground="#000000" FontWeight="Bold"></TextBlock>
+                <toolkit:DatePicker x:Name="dpCreatedDate" Background="#fff5e8" BorderBrush="Transparent" Foreground="#767676" ValueChanged="dpCreatedDate_ValueChanged"/>
+                <TextBlock Text="收割日期" FontSize="24" Foreground="#000000" FontWeight="Bold"></TextBlock>
+                <toolkit:DatePicker x:Name="dpHarvestDate" Background="#fff5e8" BorderBrush="Transparent" Foreground="#767676" ValueChanged="dpHarvestDate_ValueChanged"/>
+                <TextBlock Text="种植方式" FontSize="24" Foreground="#000000" FontWeight="Bold"></TextBlock>
+                <toolkit:ListPicker x:Name="lpPlantCategory" Margin="16,8,16,0" Background="#fff5e8" SelectionMode="Single" BorderBrush="Transparent" BorderThickness="0" FontSize="24" Foreground="Gray">
+                    <toolkit:ListPickerItem Content="请选择种植方式" TabIndex="0" FontSize="24" Foreground="#767676"/>
+                    <toolkit:ListPickerItem Content="手工种植" TabIndex="1" FontSize="24" Foreground="#767676"/>
+                    <toolkit:ListPickerItem Content="机械插秧" TabIndex="2" FontSize="24" Foreground="#767676"/>
+                </toolkit:ListPicker>
+                <TextBlock Text="种植面积" FontSize="24" Foreground="#000000" FontWeight="Bold"></TextBlock>
+                <TextBox x:Name="txtFieldArea" FontSize="24" Background="#fff5e8" BorderBrush="Transparent" Foreground="#767676"></TextBox>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
